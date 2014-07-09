@@ -31,6 +31,7 @@
       mainWindow = new BrowserWindow({
         'width': 1200,
         'height': 820,
+        'icon': __dirname + '/favicon.png',
         'node-integration': 'disable'
       }),
       
