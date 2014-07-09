@@ -29,7 +29,7 @@
     
       // and load the index.html of the app.
       
-      mainWindow.loadUrl('http://localhost:31337');
+      mainWindow.loadUrl('http://localhost:8000');
       
       webContents.on('did-finish-load', function() {
           webContents.executeJavaScript('window.module = undefined');
