@@ -1,8 +1,13 @@
 (function() {
     'use strict';
     
-    var app         = require('app'),  // Module to control application life.
-        cloudcmd    = require('cloudcmd');
+    var app         = require('app');  // Module to control application life.
+    
+    try {
+        require('cloudcmd');
+    } catch(error) {
+        
+    }
     
     var BrowserWindow = require('browser-window');  // Module to create native browser window.
     
@@ -22,19 +27,21 @@
     // This method will be called when atom-shell has done everything
     // initialization and ready for creating browser windows.
     app.on('ready', function() {
-      var webContents;
       // Create the browser window.
-      mainWindow = new BrowserWindow({width: 800, height: 600}),
-      webContents = mainWindow.webContents;
-    
-      // and load the index.html of the app.
+      mainWindow = new BrowserWindow({
+        'width': 1200,
+        'height': 820,
+        'node-integration': 'disable'
+      }),
       
       mainWindow.loadUrl('http://localhost:8000');
       
-      webContents.on('did-finish-load', function() {
-          webContents.executeJavaScript('window.module = undefined');
+      // and load the index.html of the app.
+      /*
+      mainWindow.webContents.on('did-finish-load', function() {
           mainWindow.openDevTools();
       });
+      */
       
       // Emitted when the window is closed.
       mainWindow.on('closed', function() {
