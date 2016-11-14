@@ -1,55 +1,75 @@
-(function() {
-    'use strict';
-    
-    var app         = require('app');  // Module to control application life.
-    
-    try {
-        require('cloudcmd');
-    } catch(error) {
-        
-    }
-    
-    var BrowserWindow = require('browser-window');  // Module to create native browser window.
-    
-    // Report crashes to our server.
-    require('crash-reporter').start();
-    
-    // Keep a global reference of the window object, if you don't, the window will
-    // be closed automatically when the javascript object is GCed.
-    var mainWindow = null;
-    
-    // Quit when all windows are closed.
-    app.on('window-all-closed', function() {
-      if (process.platform !== 'darwin')
-        app.quit();
+const {app, BrowserWindow, globalShotcut} = require('electron')
+const path = require('path')
+const url = require('url')
+const server = require('./server');
+
+const {dialog} = require('electron').remote;
+
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let win
+
+function createWindow (port) {
+  // Create the browser window.
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+          nodeIntegration: false
+        }
     });
     
-    // This method will be called when atom-shell has done everything
-    // initialization and ready for creating browser windows.
-    app.on('ready', function() {
-      // Create the browser window.
-      mainWindow = new BrowserWindow({
-        'width': 1200,
-        'height': 820,
-        'icon': __dirname + '/favicon.png',
-        'node-integration': 'disable'
-      }),
-      
-      mainWindow.loadUrl('http://localhost:8000');
-      
-      // and load the index.html of the app.
-      /*
-      mainWindow.webContents.on('did-finish-load', function() {
-          mainWindow.openDevTools();
-      });
-      */
-      
-      // Emitted when the window is closed.
-      mainWindow.on('closed', function() {
+    win.loadURL(`http://localhost:${port}`);
+    
+    globaShortcut.register('F12', () => {
+        win.webContents.openDevTools()
+    });
+    
+    win.on('closed', () => {
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
-        mainWindow = null;
-      });
+        win = null;
     });
-})();
+}
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', () => {
+    server((e, port) => {
+        exitIfError(e);
+        createWindow(port);
+    });
+});
+
+app.on('window-all-closed', () => {
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (win === null) {
+    createWindow()
+  }
+})
+
+function exitIfError(e) {
+    if (!e)
+        return;
+    
+    dialog.shoeMessageBox({
+        type: 'error',
+        title: 'Cloud Commander',
+        message: e.message
+    }, () => {
+        app.quit()
+    });
+  }
+}
+
