@@ -3,8 +3,8 @@
   "version": "5.9.1",
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "atom version of Cloud Commander",
-  "homepage": "index.html",
+  "description": "Desktop version of Cloud Commander",
+  "homepage": "http://cloudcmd.io",
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/cloudcmd-app.git"
