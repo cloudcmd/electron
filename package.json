@@ -12,8 +12,9 @@
   "dependencies": {
     "cloudcmd": "*"
   },
-  "main": "main.js",
+  "main": "lib/main.js",
   "scripts": {
+    "lint": "eslint lib",
     "pack:windows": "electron-packager . --platform=win32 --icon=icon.ico",
     "zip:windows": "onezip -p cloudcmd-win32-x64",
     "mv:windows": "mv cloudcmd-win32-x64 cloudcmd-v`version`-win32-x64",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "electron": "^1.4.6",
     "electron-packager": "^8.2.0",
+    "eslint": "^3.10.0",
     "onezip": "^1.0.4",
     "putasset": "^1.0.7",
     "rimraf": "^2.5.4",
