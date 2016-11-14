@@ -1,4 +1,4 @@
-const {app, BrowserWindow, globalShotcut} = require('electron')
+const {app, BrowserWindow, globalShortcut} = require('electron')
 const path = require('path')
 const url = require('url')
 const server = require('./server');
@@ -21,7 +21,7 @@ function createWindow (port) {
     
     win.loadURL(`http://localhost:${port}`);
     
-    globaShortcut.register('F12', () => {
+    globalShortcut.register('F12', () => {
         win.webContents.openDevTools()
     });
     
