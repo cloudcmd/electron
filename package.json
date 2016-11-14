@@ -16,8 +16,8 @@
   "scripts": {
     "lint": "eslint lib",
     "pack:windows": "electron-packager . --platform=win32 --icon=icon.ico",
-    "zip:windows": "onezip -p cloudcmd-win32-x64",
     "mv:windows": "mv cloudcmd-win32-x64 cloudcmd-v`version`-win32-x64",
+    "zip:windows": "onezip -p cloudcmd-v`version`-win32-x64",
     "rm:windows": "rimraf cloudcmd-win32-*",
     "upload:windows": "putasset -u coderaiser -r cloudcmd -t v`version` -f cloudcmd-v`version`-win32-x64.zip",
     "dist": "redrun pack:* zip:* mv:* upload:* rm:*",
