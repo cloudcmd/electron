@@ -21,7 +21,7 @@
     "zip:windows": "onezip -p cloudcmd-v`version`-win32-x64",
     "rm:windows": "rimraf cloudcmd-*",
     "upload:windows": "putasset -u coderaiser -r cloudcmd -t v`version` -f cloudcmd-v`version`-win32-x64.zip",
-    "dist": "redrun pack:* mv:* zip:* upload:* rm:*",
+    "dist": "redrun rm:* pack:* mv:* zip:* upload:*",
     "wisdom": "npm run dist"
   },
   "devDependencies": {
