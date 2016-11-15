@@ -1,5 +1,6 @@
 {
-  "name": "cloudcmd",
+  "name": "cloudcmd-electron",
+  "productName": "cloudcmd",
   "version": "5.9.1",
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
@@ -18,9 +19,9 @@
     "pack:windows": "electron-packager . --platform=win32 --icon=icon.ico",
     "mv:windows": "mv cloudcmd-win32-x64 cloudcmd-v`version`-win32-x64",
     "zip:windows": "onezip -p cloudcmd-v`version`-win32-x64",
-    "rm:windows": "rimraf cloudcmd-win32-*",
+    "rm:windows": "rimraf cloudcmd-*",
     "upload:windows": "putasset -u coderaiser -r cloudcmd -t v`version` -f cloudcmd-v`version`-win32-x64.zip",
-    "dist": "redrun pack:* zip:* mv:* upload:* rm:*",
+    "dist": "redrun pack:* mv:* zip:* upload:* rm:*",
     "wisdom": "npm run dist"
   },
   "devDependencies": {
