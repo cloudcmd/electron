@@ -1,8 +1,9 @@
 {
   "name": "cloudcmd-electron",
   "productName": "cloudcmd",
-  "version": "5.10.0",
+  "version": "5.10.1",
   "private": true,
+  "changelog": false,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Desktop version of Cloud Commander",
   "homepage": "http://cloudcmd.io",
