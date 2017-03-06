@@ -10,12 +10,9 @@ install:
 
 build: off
 
-deploy:
- - provider: Environment
-   name: production
-   on:
-     appveyor_repo_tag: true
-  
+only_commits:
+  message: /chore\(package\) v\d+\.\d+\.\d+/
+
 build_script:
     # Output useful info for debugging.
     - node --version
