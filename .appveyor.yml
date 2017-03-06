@@ -7,8 +7,6 @@ install:
   - ps: Install-Product node $env:nodejs_version $env:platform
    # install modules
   - npm i
-  - npm i redrun -g
-  - npm i electron-rebuild
 
 build: off
 
@@ -19,4 +17,5 @@ build_script:
   - npm --version
   # run tests
   - npm run ci:dist
+  - ls -lha
 
