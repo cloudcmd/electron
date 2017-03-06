@@ -10,11 +10,17 @@ install:
 
 build: off
 
-# Post-install test scripts.
+deploy:
+ - provider: Environment
+   name: production
+   on:
+     appveyor_repo_tag: true
+  
 build_script:
-  # Output useful info for debugging.
-  - node --version
-  - npm --version
-  # run tests
-  - npm run ci:dist
+    # Output useful info for debugging.
+    - node --version
+    - npm --version
+    
+    # run tests
+    - npm run ci:dist
 
