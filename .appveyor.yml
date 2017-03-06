@@ -8,6 +8,8 @@ install:
    # install modules
   - npm i
   - npm i gritty
+  - npm i redrun -g
+  - npm i electron-rebuild -g
 
 build: off
 
@@ -17,6 +19,5 @@ build_script:
   - node --version
   - npm --version
   # run tests
-  - npm i electron-rebuild -g
   - npm run dist
 
