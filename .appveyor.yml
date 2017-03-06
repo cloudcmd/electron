@@ -7,7 +7,7 @@ install:
   - npm i
   - npm i gritty
   - npm i redrun -g
-  - npm i electron-rebuild -g
+  - npm i electron-rebuild
 
 build: off
 
