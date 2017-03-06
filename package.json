@@ -18,7 +18,7 @@
   "main": "lib/main.js",
   "scripts": {
     "lint": "eslint lib",
-    "pack:windows": "electron-packager . --platform=win32 --icon=icon.ico",
+    "pack:windows": "electron-packager . --platform=win32 --arch x64 --icon=icon.ico",
     "mv:windows": "mv cloudcmd-win32-x64 cloudcmd-v`version`-win32-x64",
     "zip:windows": "onezip -p cloudcmd-v`version`-win32-x64",
     "rm:windows": "rimraf cloudcmd-*",
