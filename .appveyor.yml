@@ -1,0 +1,21 @@
+environment:
+  matrix:
+  # node.js
+  - nodejs_version: "6"
+  # io.js
+  - nodejs_version: "1.0"
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+   # install modules
+  - npm i
+  - npm i gritty
+
+# Post-install test scripts.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm run dist
+

@@ -24,7 +24,7 @@
     "rm:windows": "rimraf cloudcmd-*",
     "rm:modules": "rimraf node_modules",
     "install:all": "npm i",
-    "upload:windows": "putasset -u coderaiser -r cloudcmd -t v`version` -f cloudcmd-v`version`-win32-x64.zip",
+    "upload:windows": "putasset -u cloudcmd -r electron -t v`version` -f cloudcmd-v`version`-win32-x64.zip",
     "dist": "redrun rm:* install:* pack:* mv:* zip:* upload:*",
     "wisdom:done": "npm run dist"
   },
