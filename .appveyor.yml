@@ -8,7 +8,6 @@ install:
   - ps: Install-Product node $env:nodejs_version
    # install modules
   - npm i
-  - npm i gritty
   - npm i redrun -g
   - npm i electron-rebuild
 
