@@ -17,5 +17,7 @@ test_script:
   - node --version
   - npm --version
   # run tests
+  - npm i electron-rebuild -g
+  - npm run electron:rebuild
   - npm run dist
 

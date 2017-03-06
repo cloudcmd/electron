@@ -25,8 +25,9 @@
     "rm:modules": "rimraf node_modules",
     "install:all": "npm i",
     "upload:windows": "putasset -u cloudcmd -r electron -t v`version` -f cloudcmd-v`version`-win32-x64.zip",
-    "dist": "redrun rm:* install:* pack:* mv:* zip:* upload:*",
-    "wisdom:done": "npm run dist"
+    "dist": "redrun rm:* install:* rebuild:* pack:* mv:* zip:* upload:*",
+    "wisdom:done": "npm run dist",
+    "rebuild:electron" : "electron-rebuild -f -w node-pty"
   },
   "devDependencies": {
     "electron": "^1.4.6",
