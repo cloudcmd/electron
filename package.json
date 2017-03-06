@@ -26,7 +26,8 @@
     "install:all": "npm i",
     "upload:windows": "putasset -u cloudcmd -r electron -t v`version` -f cloudcmd-v`version`-win32-x64.zip",
     "dist": "redrun rm:* install:* pack:* mv:* zip:* upload:*",
-    "dist:ci": "redrun rebuild:* pack:* mv:* zip:* upload:*",
+    "dist:ci": "redrun rebuild:* pack:* mv:* zip:* ci:upload:*",
+    "ci:upload:windows": "putasset -u cloudcmd -r electron -t v%npm_package_version% -f cloudcmd-v%npm_package_version%-win32-x64.zip",
     "wisdom:done": "npm run dist",
     "rebuild:electron" : "electron-rebuild -f -w node-pty"
   },
