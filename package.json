@@ -34,7 +34,7 @@
     "ci:dist": "redrun pack:* ci:install:* ci:build:* ci:mv:* ci:zip:* ci:upload:*",
     "wisdom:done:old": "npm run dist",
     "wisdom:done": "echo https://ci.appveyor.com/project/coderaiser/electron/",
-    "rebuild:electron" : "electron-rebuild -f -w node-pty --arch x64"
+    "rebuild:electron" : "electron-rebuild -f -w node-pty"
   },
   "devDependencies": {
     "electron": "^1.4.6",
