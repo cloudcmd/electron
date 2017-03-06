@@ -21,4 +21,5 @@ build_script:
   - npm --version
   # run tests
   - npm run dist:ci
+  - ls -lha
 
