@@ -17,5 +17,4 @@ build_script:
   - npm --version
   # run tests
   - npm run ci:dist
-  - ls -lha
 
