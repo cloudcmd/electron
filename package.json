@@ -13,7 +13,8 @@
     "url": "git://github.com/coderaiser/cloudcmd-app.git"
   },
   "dependencies": {
-    "cloudcmd": "*"
+    "cloudcmd": "*",
+    "gritty": "^1.4.7"
   },
   "main": "lib/main.js",
   "scripts": {
@@ -34,7 +35,7 @@
     "wisdom:done": "echo https://ci.appveyor.com/project/coderaiser/electron/"
   },
   "devDependencies": {
-    "electron": "^1.4.6",
+    "electron": "1.6.5",
     "electron-packager": "^8.2.0",
     "eslint": "^3.10.0",
     "onezip": "^1.0.4",
