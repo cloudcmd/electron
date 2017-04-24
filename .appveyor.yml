@@ -2,20 +2,16 @@ platform: x64
 
 environment:
   nodejs_version: "6"
+  npm_config_target: 1.6.6
+  npm_config_arch: x64
+  npm_config_target_arch: x64
+  npm_config_disturl: https://atom.io/download/electron
+  npm_config_runtime: electron
+  npm_config_build_from_source: true
+  NODE_GYP_DIR: '%USERPROFILE%\.node-gyp'
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
-# Electron's version.
-  - cmd: set npm_config_target=1.6.5
-# The architecture of Electron, can be ia32 or x64.
-  - cmd: set npm_config_arch=x64
-  - cmd: set npm_config_target_arch=x64
-# Download headers for Electron.
-  - cmd: set npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
-  - cmd: set npm_config_runtime=electron
-   # Tell node-pre-gyp to build module from source code.
-  - cmd: set npm_config_build_from_source=true
 # install modules
   - npm i
 
