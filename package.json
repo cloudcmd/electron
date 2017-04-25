@@ -13,7 +13,8 @@
     "url": "git://github.com/coderaiser/cloudcmd-app.git"
   },
   "dependencies": {
-    "cloudcmd": "*"
+    "cloudcmd": "*",
+    "gritty": "^1.4.7"
   },
   "main": "lib/main.js",
   "scripts": {
