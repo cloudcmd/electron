@@ -42,6 +42,6 @@
     "putasset": "^2.1.0",
     "redrun": "^5.9.9",
     "rimraf": "^2.5.4",
-    "version-io": "^1.2.5"
+    "version-io": "^2.0.1"
   }
 }
