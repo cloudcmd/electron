@@ -1,7 +1,7 @@
 {
   "name": "cloudcmd-electron",
   "productName": "cloudcmd",
-  "version": "7.3.1",
+  "version": "7.3.2",
   "private": true,
   "changelog": false,
   "release": false,
