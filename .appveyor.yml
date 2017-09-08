@@ -2,7 +2,7 @@ platform: x64
 
 environment:
   nodejs_version: 7
-  npm_config_target: 1.7.5
+  npm_config_target: 1.7.6
   npm_config_arch: x64
   npm_config_target_arch: x64
   npm_config_disturl: https://atom.io/download/electron
