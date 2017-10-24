@@ -4,7 +4,6 @@
   "version": "8.1.2",
   "private": true,
   "changelog": false,
-  "release": false,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Desktop version of Cloud Commander",
   "homepage": "http://cloudcmd.io",
