@@ -29,7 +29,7 @@
     "install:all": "npm i",
     "upload:windows": "putasset -o coderaiser -r cloudcmd -t v`version` -f cloudcmd-v`version`-win32-x64.zip",
     "ci:upload:windows": "putasset -l -o coderaiser -r cloudcmd -t v%npm_package_version% -f cloudcmd-v%npm_package_version%-win32-x64.zip",
-    "dist": "redrun rm:* install:* pack:* mv:* zip:* upload:*",
+    "dist": "redrun pack:* mv:* zip:* upload:* rm:*",
     "ci:dist": "redrun pack:* ci:mv:* ci:zip:* ci:upload:*",
     "wisdom:done:old": "npm run dist",
     "wisdom:done": "echo https://ci.appveyor.com/project/coderaiser/electron/"
