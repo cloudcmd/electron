@@ -4,7 +4,6 @@ node_js:
 
 script:
   - npm run lint
-  - npm run dist
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test ; fi
@@ -17,4 +16,13 @@ notifications:
     email:
         on_success: never
         on_failure: change
+
+deploy:
+    provider: script
+    script: npm run dist
+    skip_cleanup: true
+    on:
+        node: '8'
+        tags: true
+        all_branches: false
 
