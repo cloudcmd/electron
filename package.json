@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "electron": "1.7.10",
-    "electron-packager": "^8.2.0",
+    "electron-packager": "^10.0.0",
     "eslint": "^3.10.0",
     "onezip": "^1.0.4",
     "putasset": "^3.0.0",
