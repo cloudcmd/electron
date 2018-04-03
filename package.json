@@ -34,7 +34,7 @@
     "wisdom:done": "echo https://ci.appveyor.com/project/coderaiser/electron/"
   },
   "devDependencies": {
-    "electron": "1.8.2",
+    "electron": "1.8.4",
     "electron-packager": "^11.0.0",
     "eslint": "^4.15.0",
     "onezip": "^1.0.4",
