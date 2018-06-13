@@ -37,7 +37,7 @@
     "electron": "2.0.2",
     "electron-packager": "^11.0.0",
     "eslint": "^4.15.0",
-    "onezip": "^1.0.4",
+    "onezip": "^2.0.2",
     "putasset": "^3.0.0",
     "redrun": "^6.0.6",
     "rimraf": "^2.5.4",
