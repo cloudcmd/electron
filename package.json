@@ -39,7 +39,7 @@
     "eslint": "^4.15.0",
     "onezip": "^1.0.4",
     "putasset": "^3.0.0",
-    "redrun": "^5.9.9",
+    "redrun": "^6.0.6",
     "rimraf": "^2.5.4",
     "version-io": "^2.0.1"
   }
