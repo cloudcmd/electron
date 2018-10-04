@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "cloudcmd": "*",
-    "gritty": "^3.0.1"
+    "gritty": "^4.3.0"
   },
   "main": "lib/main.js",
   "scripts": {
