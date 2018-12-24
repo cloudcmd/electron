@@ -6,8 +6,8 @@ script:
   - npm run lint
 
 env:
-    nodejs_version: 8
-    npm_config_target: 3.0.7
+    nodejs_version: 10
+    npm_config_target: 4.0.0
     npm_config_arch: x64
     npm_config_target_arch: x64
     npm_config_disturl: https://atom.io/download/electron
@@ -31,7 +31,7 @@ deploy:
     script: npm run dist
     skip_cleanup: true
     on:
-        node: '8'
+        node: '10'
         tags: true
         all_branches: false
 
