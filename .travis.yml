@@ -7,7 +7,7 @@ script:
 
 env:
     nodejs_version: 10
-    npm_config_target: 4.0.0
+    npm_config_target: 4.0.5
     npm_config_arch: x64
     npm_config_target_arch: x64
     npm_config_disturl: https://atom.io/download/electron
