@@ -1,7 +1,7 @@
 {
   "name": "cloudcmd-electron",
   "productName": "cloudcmd",
-  "version": "12.3.2",
+  "version": "12.4.0",
   "private": true,
   "changelog": false,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
