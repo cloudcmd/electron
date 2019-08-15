@@ -12,7 +12,7 @@ env:
     npm_config_target: 6.0.2
     npm_config_arch: x64
     npm_config_target_arch: x64
-    npm_config_disturl: https://atom.io/download/electron
+    npm_config_disturl: https://electronjs.org/headers
     npm_config_runtime: electron
     npm_config_build_from_source: true
 
@@ -30,7 +30,7 @@ notifications:
 
 deploy:
     provider: script
-    script: npm run dist
+    script: npm run ci:dist
     skip_cleanup: true
     on:
         node: '12'
