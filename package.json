@@ -43,7 +43,7 @@
     "putasset": "^4.0.0",
     "putout": "^5.9.0",
     "redrun": "^7.0.0",
-    "rimraf": "^2.5.4",
+    "rimraf": "^3.0.0",
     "version-io": "^2.0.1"
   },
   "engines": {
