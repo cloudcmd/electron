@@ -9,7 +9,7 @@ script:
 
 env:
     nodejs_version: 12
-    npm_config_target: 6.0.2
+    npm_config_target: 6.0.5
     npm_config_arch: x64
     npm_config_target_arch: x64
     npm_config_disturl: https://electronjs.org/headers

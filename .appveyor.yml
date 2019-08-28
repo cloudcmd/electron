@@ -2,7 +2,7 @@ platform: x64
 
 environment:
   nodejs_version: 12
-  npm_config_target: 6.0.2
+  npm_config_target: 6.0.5
   npm_config_arch: x64
   npm_config_target_arch: x64
   npm_config_disturl: https://electronjs.org/headers
@@ -12,7 +12,6 @@ environment:
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
 # install modules
-  - npm i
   - HOME=~/.electron-gyp npm install
 
 build: off
