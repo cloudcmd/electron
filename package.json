@@ -15,7 +15,8 @@
     "cloudcmd": "*",
     "express": "^4.17.1",
     "gritty": "^4.3.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "try-to-catch": "^1.1.1"
   },
   "main": "lib/main.js",
   "scripts": {
