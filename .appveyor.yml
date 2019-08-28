@@ -8,11 +8,13 @@ environment:
   npm_config_disturl: https://electronjs.org/headers
   npm_config_runtime: electron
   npm_config_build_from_source: true
+  HOME: ~/.electron-gyp
+  APPVEYOR_CACHE_SKIP_RESTORE: true
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
 # install modules
-  - HOME=~/.electron-gyp npm install
+  - npm install
 
 build: off
 
