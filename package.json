@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "cloudcmd": "*",
-    "electron": "6.0.5",
     "express": "^4.17.1",
     "gritty": "^4.3.0",
     "socket.io": "^2.2.0"
@@ -38,6 +37,7 @@
     "wisdom:done": "madrun wisdom:done"
   },
   "devDependencies": {
+    "electron": "6.0.5",
     "electron-packager": "^14.0.4",
     "eslint": "^6.2.2",
     "eslint-plugin-node": "^9.1.0",
