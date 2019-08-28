@@ -35,10 +35,13 @@
   },
   "devDependencies": {
     "electron": "6.0.5",
-    "electron-packager": "^13.0.1",
+    "electron-packager": "^14.0.4",
     "eslint": "^5.4.0",
+    "eslint-plugin-putout": "^2.0.0",
+    "madrun": "^2.5.1",
     "onezip": "^3.1.0",
     "putasset": "^4.0.0",
+    "putout": "^5.9.0",
     "redrun": "^7.0.0",
     "rimraf": "^2.5.4",
     "version-io": "^2.0.1"
