@@ -14,7 +14,8 @@ environment:
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
 # install modules
-  - npm install
+  - npm i -f
+  - npm i node-pty@beta
 
 build: off
 
