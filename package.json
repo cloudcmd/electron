@@ -44,7 +44,7 @@
     "eslint": "^6.2.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-putout": "^2.0.0",
-    "madrun": "^2.5.1",
+    "madrun": "^5.0.0",
     "onezip": "^3.1.0",
     "putasset": "^4.0.0",
     "putout": "^5.9.0",
