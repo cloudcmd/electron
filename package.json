@@ -1,15 +1,16 @@
 {
   "name": "cloudcmd-electron",
   "productName": "cloudcmd",
-  "version": "14.1.2",
+  "version": "14.2.0",
   "private": true,
   "changelog": false,
+  "release": "false",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Desktop version of Cloud Commander",
   "homepage": "http://cloudcmd.io",
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/cloudcmd-app.git"
+    "url": "git://github.com/cloudcmd/electron.git"
   },
   "dependencies": {
     "cloudcmd": "*",
