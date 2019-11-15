@@ -42,7 +42,7 @@
     "electron": "6.0.5",
     "electron-packager": "^14.0.4",
     "eslint": "^6.2.2",
-    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-putout": "^2.0.0",
     "madrun": "^5.0.0",
     "onezip": "^3.1.0",
