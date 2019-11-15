@@ -47,7 +47,7 @@
     "madrun": "^5.0.0",
     "onezip": "^4.0.2",
     "putasset": "^4.0.0",
-    "putout": "^5.9.0",
+    "putout": "^7.0.6",
     "redrun": "^7.0.0",
     "rimraf": "^3.0.0"
   },
