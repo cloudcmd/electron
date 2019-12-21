@@ -39,7 +39,7 @@
     "wisdom:done": "madrun wisdom:done"
   },
   "devDependencies": {
-    "electron": "6.0.5",
+    "electron": "^7.1.7",
     "electron-packager": "^14.0.4",
     "eslint": "^6.2.2",
     "eslint-plugin-node": "^10.0.0",
