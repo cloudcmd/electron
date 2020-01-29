@@ -4,7 +4,7 @@ const {version} = require('./package');
 const {run} = require('madrun');
 
 module.exports = {
-    'lint': () => 'putout lib madrun.js',
+    'lint': () => 'putout lib .madrun.js',
     'fix:lint': () => run('lint', '--fix'),
     'pack:windows': () => 'electron-packager . --platform=win32 --arch x64 --icon=icon.ico',
     'mv:windows': () => `mv cloudcmd-win32-x64 cloudcmd-v${version}-win32-x64`,
