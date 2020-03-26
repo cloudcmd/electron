@@ -48,7 +48,6 @@
     "onezip": "^4.0.2",
     "putasset": "^5.0.0",
     "putout": "^7.0.6",
-    "redrun": "^7.0.0",
     "rimraf": "^3.0.0"
   },
   "engines": {
