@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-    - 12
+    - 14
 
 cache: false
 sudo: required
@@ -27,7 +27,6 @@ before_install:
 
 # need this while node-pty@0.9.0 stable released
 install:
-  - npm i node-pty@beta
   - npm i
 
 notifications:
@@ -40,7 +39,7 @@ deploy:
     script: npm run ci:dist
     skip_cleanup: true
     on:
-        node: '12'
+        node: '14'
         tags: true
         all_branches: false
 
