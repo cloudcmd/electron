@@ -1,0 +1,32 @@
+appId: io.cloudcmd.desktop
+productName: cloudcmd
+directories:
+  output: dist
+files:
+  - lib/**
+  - package.json
+  - favicon.png
+asarUnpack:
+  - "**/node_modules/node-pty/**"
+npmRebuild: true
+win:
+  icon: icon.ico
+  target:
+    - target: zip
+      arch: [x64, arm64]
+    - target: nsis
+      arch: [x64, arm64]
+  artifactName: cloudcmd-v${version}-win32-${arch}.${ext}
+mac:
+  icon: icon.icns
+  category: public.app-category.developer-tools
+  target:
+    - target: dmg
+    - target: zip
+  artifactName: cloudcmd-v${version}-darwin-${arch}.${ext}
+linux:
+  category: Utility
+  target:
+    - target: AppImage
+    - target: deb
+  artifactName: cloudcmd-v${version}-linux-${arch}.${ext}

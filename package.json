@@ -2,6 +2,7 @@
   "name": "cloudcmd-electron",
   "productName": "cloudcmd",
   "version": "19.24.0",
+  "type": "module",
   "private": true,
   "changelog": false,
   "release": false,
@@ -12,48 +13,34 @@
     "type": "git",
     "url": "git://github.com/cloudcmd/electron.git"
   },
-  "dependencies": {
-    "cloudcmd": "*",
-    "express": "^4.17.1",
-    "gritty": "^6.0.0",
-    "socket.io": "^3.0.4",
-    "try-to-catch": "^3.0.0"
-  },
   "main": "lib/main.js",
   "scripts": {
-    "lint": "madrun lint",
-    "fix:lint": "madrun fix:lint",
-    "pack:windows": "madrun pack:windows",
-    "mv:windows": "madrun mv:windows",
-    "ci:mv:windows": "madrun ci:mv:windows",
-    "zip:windows": "madrun zip:windows",
-    "ci:zip:windows": "madrun ci:zip:windows",
-    "rm:windows": "madrun rm:windows",
-    "rm:modules": "madrun rm:modules",
-    "install:all": "madrun install:all",
-    "upload:windows": "madrun upload:windows",
-    "ci:upload:windows": "madrun ci:upload:windows",
-    "dist": "madrun dist",
-    "ci:dist": "madrun ci:dist",
-    "wisdom:done:old": "madrun wisdom:done:old",
-    "wisdom:done": "madrun wisdom:done"
+    "test": "node --import ./test/helpers/register.js node_modules/supertape/bin/supertape.js \"test/*.js\"",
+    "coverage": "c8 --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 --include \"lib/**\" --include \"scripts/**\" node --import ./test/helpers/register.js node_modules/supertape/bin/supertape.js \"test/*.js\"",
+    "lint": "putout lib test scripts",
+    "fix:lint": "putout lib test scripts --fix",
+    "start": "electron .",
+    "dist": "electron-builder --publish never",
+    "release:names": "node scripts/release-names.js",
+    "check:tag": "node scripts/check-tag.js"
+  },
+  "dependencies": {
+    "cloudcmd": "^19.23.2",
+    "express": "^5.3.0",
+    "gritty": "^10.2.1",
+    "socket.io": "^4.8.4",
+    "try-to-catch": "^4.1.0"
   },
   "devDependencies": {
-    "electron": "^11.1.1",
-    "electron-packager": "^15.2.0",
-    "eslint": "^7.16.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^6.11.1",
-    "madrun": "^8.2.0",
-    "onezip": "^4.0.2",
-    "putasset": "^5.0.0",
-    "putout": "^12.12.0",
-    "rimraf": "^3.0.0"
+    "c8": "^12.0.0",
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0",
+    "eslint": "^10.15.0",
+    "eslint-plugin-putout": "^31.5.0",
+    "putout": "^42.26.3",
+    "supertape": "^13.6.2"
   },
   "engines": {
-    "node": ">=8.3.0"
-  },
-  "publishConfig": {
-    "access": "restricted"
+    "node": ">=22"
   }
 }
