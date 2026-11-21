@@ -17,12 +17,13 @@
   "scripts": {
     "test": "node --import ./test/helpers/register.js node_modules/supertape/bin/supertape.js \"test/*.js\"",
     "coverage": "c8 --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 --include \"lib/**\" --include \"scripts/**\" node --import ./test/helpers/register.js node_modules/supertape/bin/supertape.js \"test/*.js\"",
-    "lint": "putout lib test scripts",
-    "fix:lint": "putout lib test scripts --fix",
+    "lint": "putout lib test scripts test-e2e playwright.config.js",
+    "fix:lint": "putout lib test scripts test-e2e playwright.config.js --fix",
     "start": "electron .",
     "dist": "electron-builder --publish never",
     "release:names": "node scripts/release-names.js",
-    "check:tag": "node scripts/check-tag.js"
+    "check:tag": "node scripts/check-tag.js",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "cloudcmd": "^19.23.2",
@@ -32,13 +33,15 @@
     "try-to-catch": "^4.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "c8": "^12.0.0",
     "electron": "^45.4.1",
     "electron-builder": "^26.18.0",
     "eslint": "^10.15.0",
     "eslint-plugin-putout": "^31.5.0",
     "putout": "^42.26.3",
-    "supertape": "^13.6.2"
+    "supertape": "^13.6.2",
+    "try-catch": "^4.1.1"
   },
   "engines": {
     "node": ">=22"

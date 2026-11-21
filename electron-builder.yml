@@ -13,18 +13,18 @@ win:
   icon: icon.ico
   target:
     - target: zip
-      arch: [x64, arm64]
     - target: nsis
-      arch: [x64, arm64]
   artifactName: cloudcmd-v${version}-win32-${arch}.${ext}
 mac:
   icon: icon.icns
+  identity: "-"
   category: public.app-category.developer-tools
   target:
     - target: dmg
     - target: zip
   artifactName: cloudcmd-v${version}-darwin-${arch}.${ext}
 linux:
+  executableName: cloudcmd
   category: Utility
   target:
     - target: AppImage

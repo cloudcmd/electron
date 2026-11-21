@@ -27,8 +27,12 @@ export const globalShortcut = {
 export class BrowserWindow {
     constructor(options) {
         this.options = options;
+        this.webContentsHandlers = {};
         this.webContents = {
             openDevTools: noop,
+            on: (name, fn) => {
+                this.webContentsHandlers[name] = fn;
+            },
         };
         windows.push(this);
     }

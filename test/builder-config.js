@@ -52,3 +52,45 @@ test('cloudcmd-electron: workflow: publishes to releases of cloudcmd', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('cloudcmd-electron: builder: mac uses ad-hoc signature (arm64 build without it is "damaged")', (t) => {
+    const result = config.includes('identity: "-"');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('cloudcmd-electron: builder: linux binary is named cloudcmd (e2e starts it by this name)', (t) => {
+    const result = config.includes('executableName: cloudcmd');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('cloudcmd-electron: builder: windows does not list architectures (each runner builds its own)', (t) => {
+    const result = config.includes('arch:');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('cloudcmd-electron: workflow: e2e runs before the artifacts are uploaded', (t) => {
+    const result = /npm run e2e[\s\S]*upload-artifact/.test(workflow);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('cloudcmd-electron: workflow: e2e on linux runs under xvfb', (t) => {
+    const result = workflow.includes('xvfb-run -a npm run e2e');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('cloudcmd-electron: workflow: e2e report is kept when a run fails', (t) => {
+    const result = workflow.includes('if: failure()');
+    
+    t.ok(result);
+    t.end();
+});

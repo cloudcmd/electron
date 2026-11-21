@@ -51,3 +51,12 @@ test('cloudcmd-electron: main: will-quit: stops the server', async (t) => {
     t.ok(error);
     t.end();
 });
+
+test('cloudcmd-electron: main: the window asks before it is closed with unsaved work', (t) => {
+    const handler = windows[0].webContentsHandlers['will-prevent-unload'];
+    const result = typeof handler;
+    const expected = 'function';
+    
+    t.equal(result, expected);
+    t.end();
+});

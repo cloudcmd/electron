@@ -7,6 +7,7 @@ const createFakes = () => {
         on: stub(),
         webContents: {
             openDevTools: stub(),
+            on: stub(),
         },
     };
 
@@ -16,8 +17,13 @@ const createFakes = () => {
         register: stub(),
     };
 
+    const dialog = {
+        showMessageBoxSync: stub().returns(0),
+    };
+
     return {
         win,
+        dialog,
         BrowserWindow,
         globalShortcut,
     };
@@ -210,5 +216,103 @@ test('cloudcmd-electron: window: returns the window', (t) => {
     });
 
     t.equal(result, win);
+    t.end();
+});
+
+// The page of Cloud Commander asks "save all work" with beforeunload when keys are unbound
+// (editor, console). Electron without a handler closes nothing and shows nothing.
+const getUnloadHandler = ({win, dialog, BrowserWindow, globalShortcut}) => {
+    createWindow({
+        BrowserWindow,
+        globalShortcut,
+        dialog,
+        port: 1111,
+    });
+    
+    const [[event, handler]] = win.webContents.on.args;
+    
+    return [event, handler];
+};
+
+test('cloudcmd-electron: window: listens to will-prevent-unload', (t) => {
+    const fakes = createFakes();
+    const [event] = getUnloadHandler(fakes);
+    
+    t.equal(event, 'will-prevent-unload');
+    t.end();
+});
+
+test('cloudcmd-electron: window: will-prevent-unload: asks the user with a message box of the window', (t) => {
+    const fakes = createFakes();
+    const [, handler] = getUnloadHandler(fakes);
+    
+    handler({
+        preventDefault: stub(),
+    });
+    
+    const [[win]] = fakes.dialog.showMessageBoxSync.args;
+    
+    t.equal(win, fakes.win);
+    t.end();
+});
+
+test('cloudcmd-electron: window: will-prevent-unload: the message box has Leave and Stay', (t) => {
+    const fakes = createFakes();
+    const [, handler] = getUnloadHandler(fakes);
+    
+    handler({
+        preventDefault: stub(),
+    });
+    
+    const [[, {buttons}]] = fakes.dialog.showMessageBoxSync.args;
+    const result = buttons;
+    const expected = ['Leave', 'Stay'];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('cloudcmd-electron: window: will-prevent-unload: Stay is the default button', (t) => {
+    const fakes = createFakes();
+    const [, handler] = getUnloadHandler(fakes);
+    
+    handler({
+        preventDefault: stub(),
+    });
+    
+    const [[, {defaultId, cancelId}]] = fakes.dialog.showMessageBoxSync.args;
+    const result = [defaultId, cancelId];
+    const expected = [1, 1];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('cloudcmd-electron: window: will-prevent-unload: Leave ignores the page and lets the window close', (t) => {
+    const fakes = createFakes();
+    const [, handler] = getUnloadHandler(fakes);
+    const preventDefault = stub();
+    
+    handler({
+        preventDefault,
+    });
+    
+    t.calledWithNoArgs(preventDefault);
+    t.end();
+});
+
+test('cloudcmd-electron: window: will-prevent-unload: Stay keeps the window open', (t) => {
+    const fakes = createFakes();
+    
+    fakes.dialog.showMessageBoxSync.returns(1);
+    
+    const [, handler] = getUnloadHandler(fakes);
+    const preventDefault = stub();
+    
+    handler({
+        preventDefault,
+    });
+    
+    t.notCalled(preventDefault);
     t.end();
 });
