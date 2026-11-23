@@ -34,12 +34,12 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.65.1",
-    "c8": "^12.0.0",
     "electron": "^45.4.1",
     "electron-builder": "^26.18.0",
     "eslint": "^10.15.0",
     "eslint-plugin-putout": "^31.5.0",
     "putout": "^42.26.3",
+    "superc8": "^12.7.0",
     "supertape": "^13.6.2",
     "try-catch": "^4.1.1"
   },
