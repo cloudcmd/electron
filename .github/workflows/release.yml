@@ -13,12 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run coverage
+      - run: bun i
+      - run: bun run lint
+      - run: bun run coverage
       - name: Tag matches the version of package.json
         run: node scripts/check-tag-cli.js
 
@@ -37,17 +38,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm ci
-      - run: npm run dist
+      - run: bun i
+      - run: bun run dist
       - name: E2E (Linux needs a display)
         if: runner.os == 'Linux'
-        run: xvfb-run -a npm run e2e
+        run: xvfb-run -a bun run e2e
       - name: E2E
         if: runner.os != 'Linux'
-        run: npm run e2e
+        run: bun run e2e
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

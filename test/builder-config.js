@@ -75,14 +75,14 @@ test('cloudcmd-electron: builder: windows does not list architectures (each runn
 });
 
 test('cloudcmd-electron: workflow: e2e runs before the artifacts are uploaded', (t) => {
-    const result = /npm run e2e[\s\S]*upload-artifact/.test(workflow);
+    const result = /bun run e2e[\s\S]*upload-artifact/.test(workflow);
     
     t.ok(result);
     t.end();
 });
 
 test('cloudcmd-electron: workflow: e2e on linux runs under xvfb', (t) => {
-    const result = workflow.includes('xvfb-run -a npm run e2e');
+    const result = workflow.includes('xvfb-run -a bun run e2e');
     
     t.ok(result);
     t.end();
