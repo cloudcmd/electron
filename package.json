@@ -1,7 +1,7 @@
 {
   "name": "cloudcmd-electron",
   "productName": "cloudcmd",
-  "version": "19.24.5",
+  "version": "19.24.6",
   "type": "module",
   "private": true,
   "changelog": false,
